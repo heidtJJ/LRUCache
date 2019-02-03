@@ -8,15 +8,11 @@ using std::cout;
 using std::endl;
 
 int main(){
-    LRUCache lruCache(1);
+    LRUCache lruCache(2);
     lruCache.put(2, 1);
-
     lruCache.put(3, 2);
-    cout <<"here4\n";
     lruCache.get(2);
-    cout <<"here5\n";
     lruCache.get(3);
-    cout <<"here6\n";
 
     cout << lruCache.get(1) << endl;
     cout << lruCache.get(3) << endl;

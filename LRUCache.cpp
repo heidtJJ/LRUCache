@@ -1,14 +1,15 @@
 #include "LRUCache.h"
 #include <iostream>
-using std::cout;
-using std::endl;
+
+using std::cout;// For debugging
+using std::endl;// For debugging
+
 int LRUCache::get(const int& key){
     if(cacheMap.find(key) == cacheMap.end())
         return -1;
     else{
         // Find the CacheNode to get the key, value data.
         CacheNode cacheNode = *cacheMap[key];
-        
         // Remove old iterator and add to front of list.
         cacheList.erase(cacheMap[key]);
         cacheList.push_front(cacheNode);
@@ -22,7 +23,6 @@ void LRUCache::put(const int& key, const int& value){
         // Value is already in cache.
         cacheList.erase(cacheMap[key]);
     else{
-        cout << cacheList.size() << " " << capacity << endl;
         if(cacheList.size() == capacity){
             // Cache is full.
             CacheNode backValue = cacheList.back();
